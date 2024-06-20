@@ -57,8 +57,8 @@
             <div class="menu-item" onclick="sendNotification('焼き魚')">焼き魚</div>
             <div class="menu-item" onclick="sendNotification('天ぷら')">天ぷら</div>
             <div class="menu-item" onclick="sendNotification('タラのムニエル')">タラのムニエル</div>
-        </div>
-        
+        </div>        
+
         <div class="category">
             <h2>肉</h2>
             <div class="menu-item" onclick="sendNotification('ハンバーグ')">ハンバーグ</div>
@@ -101,17 +101,6 @@
                 console.error('Error:', error);
                 alert('通知の送信に失敗しました。');
             });
-        }
-
-        window.onload = function() {
-            var password = prompt("パスワードを入力してください", "");
-            if (password == 'your_password') {
-                // パスワードが正しい場合、メニュー項目を表示
-                document.querySelector('.menu-item').style.display = 'block';
-            } else {
-                // パスワードが間違っている場合、エラーメッセージを表示
-                alert('パスワードが間違っています。');
-            }
         }
     </script>
 </body>
