@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.category {
+    margin-bottom: 20px;
+}
+
+.category-title {
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.category-title:hover {
+    background: #0056b3;
+}
+
+.menu-items {
+    display: none;  /* 初期状態ではメニュー項目を非表示に */
+    padding: 0 10px;
+}
+
+.menu-item {
+    background: #f0f0f0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+.menu-item:hover {
+    background: #e0e0e0;
+}
+
+.category-title.active {
+    background: #0056b3;
+}

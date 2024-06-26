@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夕飯メニュー</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>夕飯メニュー</h1>
+        
+        {% for category, items in categories.items() %}
+        <div class="category">
+            <h2 class="category-title">{{ category }}</h2>
+            <div class="menu-items">
+                {% for item in items %}
+                <div class="menu-item" onclick="sendNotification('{{ item }}')">{{ item }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(".category-title").click(function(){
+                $(this).next(".menu-items").slideToggle();
+                $(this).toggleClass("active");
+            });
+        });
+
+        function sendNotification(menuItem) {
+            fetch('/send-notification', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ menuItem })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert(menuItem + 'が選ばれました。');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('通知の送信に失敗しました。');
+            });
+        }
+    </script>
+</body>
+</html>
